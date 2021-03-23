@@ -9,6 +9,9 @@ var io = require('socket.io')(server, {
         methods: ['GET', 'POST']
     }
 });
+app.get('/', (req, res) => {
+    res.send("<h1>Hello World</h1>")
+});
 io.on('connection', function (socket) {
     socket.emit('me', socket.id);
     socket.on('disconnect', function () {
